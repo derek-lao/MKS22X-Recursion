@@ -64,26 +64,26 @@ public class recursion{
 
   /*As Per classwork*/
   public static ArrayList<Integer> makeAllSums(int n){
-    return makeSums(n,0);
+    ArrayList<Integer> stuff=new ArrayList<Integer>();
+    makeSums(n,stuff,0);
+    return stuff;
   }
 
-  public static ArrayList<Integer> makeSums(int n,int sum){
-    ArrayList<Integer> holder=new ArrayList<Integer>();
-    if(n<=1)
+  public static void makeSums(int n,ArrayList<Integer> holder,int sum){
+    if(n<=0)
     {
       holder.add(sum);
-      holder.add(sum+n);
+      // System.out.println(sum);
     }
     else
     {
       holder.add(sum+n);
-      System.out.println(sum+n);
-      makeSums(n-1,sum+n);
       holder.add(sum);
-      System.out.println(sum);
-      makeSums(n-1,sum);
+      // System.out.println(sum+n);
+      // System.out.println(sum);
+      makeSums(n-1,holder,sum+n);
+      makeSums(n-1,holder,sum);
     }
-    return holder;
   }
 
   public static void main(String[] args) {
@@ -150,5 +150,9 @@ public class recursion{
           System.out.println("makeAllSums(3)");
           System.out.println("EXPECTED: [0, 3, 2, 5, 1, 4, 3, 6]");
           System.out.println(makeAllSums(3));           // [0, 3, 2, 5, 1, 4, 3, 6]
+
+          System.out.println("makeAllSums(2)");
+          System.out.println("EXPECTED: [0,1,2,3]");
+          System.out.println(makeAllSums(2));           // [0,1,2,3]
         }
 }
