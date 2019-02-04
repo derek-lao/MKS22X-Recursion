@@ -54,7 +54,7 @@ public class recursion{
       {
         fibFirst=fibSecond;
         fibSecond=currentNum;
-        System.out.println(currentNum);
+        // System.out.println(currentNum);
         return fibHelper(n,fibFirst+fibSecond,fibFirst,fibSecond,count+1);
       }
     }
@@ -72,13 +72,15 @@ public class recursion{
     if(n<=1)
     {
       holder.add(sum);
-      holder.add(sum+1);
+      holder.add(sum+n);
     }
     else
     {
       holder.add(sum+n);
+      System.out.println(sum+n);
       makeSums(n-1,sum+n);
       holder.add(sum);
+      System.out.println(sum);
       makeSums(n-1,sum);
     }
     return holder;
