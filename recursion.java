@@ -10,17 +10,25 @@ public class recursion{
 
   */
   public static double sqrt(double n, double tolerance){
-    double guess=n;
-    if(Math.abs((guess-n)/guess) <= tolerance/100)
+    if(n==0) return 0;
+    if(n==1) return 1;
+    else
+    {
+      return sqrtHelper(n,n/2,tolerance);
+    }
+  }
+
+  public static double sqrtHelper(double n,double guess,double tolerance){
+    if(((guess*guess)-n)/n <= tolerance/100)
     {
       return guess;
     }
     else
     {
-      return sqrt((n/guess + guess)/2, tolerance/100);
+      System.out.println(guess);
+      return sqrtHelper(n,(guess+n/guess)/2, tolerance);
     }
   }
-
   /*Recursively find the n'th fibbonaci number in linear time
    *fib(0) = 0
    *fib(1) = 1
