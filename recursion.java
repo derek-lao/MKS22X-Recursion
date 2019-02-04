@@ -25,7 +25,7 @@ public class recursion{
     }
     else
     {
-      System.out.println(guess);
+      // System.out.println(guess);
       return sqrtHelper(n,(guess+n/guess)/2, tolerance);
     }
   }
@@ -40,23 +40,25 @@ public class recursion{
   }
 
   public static int fibHelper(int n, int currentNum,int fibFirst,int fibSecond,int count){
-    if(n<=0) return 0;
-    if(n==1) return 1;
+    if(n<=0) return currentNum+0;
+    if(n==1) return currentNum+1;
     if(n>=2)
     {
       if(count>=n)
       {
         return currentNum;
       }
-      if(count==0) return fibHelper(0,currentNum,0,1,count+1);
-      if(count==1) return fibHelper(1,currentNum,0,1,count+1);
+      if(count==0) return fibHelper(n,1,0,1,count+1);
+      if(count==1) return fibHelper(n,1,0,1,count+1);
       else
       {
         fibFirst=fibSecond;
         fibSecond=currentNum;
-        return fibHelper(n,currentNum+fibFirst+fibSecond,fibSecond,currentNum,count+1);
+        System.out.println(currentNum);
+        return fibHelper(n,fibFirst+fibSecond,fibFirst,fibSecond,count+1);
       }
     }
+
     return currentNum;
   }
 
@@ -122,6 +124,11 @@ public class recursion{
           System.out.println("fib(7)");
           System.out.println("EXPECTED: 13");
           System.out.println(fib(7));                   // 13
+
+          // System.out.println("fib(2)");
+          // System.out.println("EXPECTED: 1");
+          // System.out.println(fib(2));                   // 1
+          // System.out.println("----");
 
           System.out.println("makeAllSums()");
           System.out.println("-----------------------\n");
