@@ -77,8 +77,8 @@ public class recursion{
     }
     else
     {
-      holder.add(sum+n);
-      holder.add(sum);
+      // holder.add(sum+n);
+      // holder.add(sum);
       // System.out.println(sum+n);
       // System.out.println(sum);
       makeSums(n-1,holder,sum+n);
