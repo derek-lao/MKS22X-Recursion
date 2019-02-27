@@ -19,7 +19,7 @@ public class recursion{
   }
 
   public static double sqrtHelper(double n,double guess,double tolerance){
-    if(((guess*guess)-n)/n <= tolerance/100)
+    if(Math.abs(((guess*guess)-n)/n) <= tolerance/100)
     {
       return guess;
     }
@@ -29,6 +29,7 @@ public class recursion{
       return sqrtHelper(n,(guess+n/guess)/2, tolerance);
     }
   }
+
   /*Recursively find the n'th fibbonaci number in linear time
    *fib(0) = 0
    *fib(1) = 1
@@ -85,6 +86,8 @@ public class recursion{
       makeSums(n-1,holder,sum);
     }
   }
+
+
 
   public static void main(String[] args) {
           System.out.println("sqrt()");
